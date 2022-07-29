@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import useCookie from 'react-use-cookie';
 import { Link } from 'react-router-dom'
+import { Button } from "./Button";
 
 export const Home = () => {
   // JS
@@ -73,7 +74,7 @@ export const Home = () => {
     <div className="flex flex-col gap-y-4">
       <div className="flex gap-x-3">
         <input value={input} onChange={handleChangeInput} className='border-2 border-black px-2 py-1 w-full'/>
-        <button onClick={handleSubmit} className='border-2 border-black font-medium min-w-[100px] py-1 hover:bg-black hover:text-white transition-all duration-700'>Add task</button>
+        <Button styleType='submit' onClick={handleSubmit}>Add task</Button>
       </div>
       
       <div className="overflow-auto h-[300px] border border-black p-2">
@@ -85,7 +86,8 @@ export const Home = () => {
               {task}
 
               </span>
-              <button onClick={() => handleDelete(index)} className='border-2 border-red-500 font-medium px-[7px] rounded-full hover:bg-red-500 hover:text-white'>X</button> 
+              <Button styleType='delete' onClick={() => handleDelete(index)}>X</Button>
+              {/* <button onClick={() => handleDelete(index)} className='border-2 border-red-500 font-medium px-[7px] rounded-full hover:bg-red-500 hover:text-white'>X</button>  */}
             </li>
           ))}
         </ol>
